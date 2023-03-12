@@ -15,12 +15,17 @@ class _helpState extends State<help> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: appBarColor,
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)),
         title: Text("help"),
       ),
       body: ListView(children: [
         tileonly(Icon(Icons.help_outline), "Help Center"),
-        tile(Icon(Icons.group), "Contact us", "Question? Need help?"),
+        tile(Icon(Icons.group), "Contact us", "Question? Need help?", context,
+            ""),
         tileonly(Icon(Icons.file_present_rounded), "Terms and Privacy Policy"),
         tileonly(Icon(Icons.info_outline), "App info")
       ]),

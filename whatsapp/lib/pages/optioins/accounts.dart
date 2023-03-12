@@ -15,7 +15,11 @@ class _accountState extends State<account> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: appBarColor,
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)),
         title: Text("Account"),
       ),
       body: ListView(

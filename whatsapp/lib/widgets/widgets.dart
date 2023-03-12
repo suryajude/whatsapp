@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-tile(Icon leadingIcon, String title, String metadata) {
+tile(Icon leadingIcon, String title, String metadata, context, String route) {
   return ListTile(
+      onTap: () {
+        Navigator.pushNamed(context, route);
+      },
       leading: leadingIcon,
       title: Column(
           // mainAxisAlignment: MainAxisAlignment.start,

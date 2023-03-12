@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/constants.dart';
+import 'package:whatsapp/pages/optioins/settings.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,7 +11,19 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+enum menuItems {
+  NewGroup,
+  NewBoardcast,
+  LinkeDevices,
+  StarredMessages,
+  Payments,
+  Settings
+}
+
 class _HomeState extends State<Home> {
+  // here the popup menu button will come
+  final ImagePicker _picker = new ImagePicker();
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -23,13 +36,54 @@ class _HomeState extends State<Home> {
             centerTitle: false,
             actions: [
               IconButton(
-                  onPressed: () {}, icon: Icon(Icons.camera_alt_outlined)),
+                  onPressed: () async {
+                    // final XFile? image =
+                    //     await _picker.pickImage(source: ImageSource.camera);
+                  },
+                  icon: Icon(Icons.camera_alt_outlined)),
               IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-              IconButton(onPressed: () {
-                // pop up menu button
-              }, icon: Icon(Icons.more_vert))
+              // here the pop up menu button will come
+              PopupMenuButton(onSelected: (value) {
+                if (value == menuItems.Settings) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Settings()));
+                } else {
+                  ScaffoldMessenger.of(context)
+                    ..showSnackBar(SnackBar(content: Text("$value")));
+                }
+              }, itemBuilder: (context) {
+                return <PopupMenuEntry<menuItems>>[
+                  const PopupMenuItem(
+                    child: Text("New group"),
+                    value: menuItems.NewGroup,
+                  ),
+                  const PopupMenuItem(
+                    child: Text("New broadcase"),
+                    value: menuItems.NewBoardcast,
+                  ),
+                  const PopupMenuItem(
+                    child: Text("Linked Devices"),
+                    value: menuItems.LinkeDevices,
+                  ),
+                  const PopupMenuItem(
+                    child: Text("Starred messages"),
+                    value: menuItems.StarredMessages,
+                  ),
+                  const PopupMenuItem(
+                    child: Text("Payments"),
+                    value: menuItems.Payments,
+                  ),
+                  const PopupMenuItem(
+                    child: Text("Settings"),
+                    value: menuItems.Settings,
+                  )
+                ];
+              })
             ],
             bottom: TabBar(
+              indicatorColor: Colors.white,
               tabs: [
                 Container(
                     height: 30.0,
