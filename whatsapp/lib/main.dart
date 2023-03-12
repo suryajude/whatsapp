@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/pages/home.dart';
+import 'package:whatsapp/pages/optioins/settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +16,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Home(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Home());
   }
 }
