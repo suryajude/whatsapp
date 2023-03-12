@@ -25,7 +25,9 @@ class _HomeState extends State<Home> {
               IconButton(
                   onPressed: () {}, icon: Icon(Icons.camera_alt_outlined)),
               IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))
+              IconButton(onPressed: () {
+                // pop up menu button
+              }, icon: Icon(Icons.more_vert))
             ],
             bottom: TabBar(
               tabs: [
