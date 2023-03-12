@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:flutter/material.dart';
 import 'package:whatsapp/constants.dart';
+import 'package:whatsapp/pages/calls.dart';
+import 'package:whatsapp/pages/chatPage.dart';
 import 'package:whatsapp/pages/optioins/settings.dart';
+import 'package:whatsapp/pages/status.dart';
 
+// home details
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -105,6 +108,7 @@ class _HomeState extends State<Home> {
                     ))
               ],
             )),
+        body: TabBarView(children: [ChatPage(), Status(), Calls()]),
       ),
     );
   }
