@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/constants.dart';
+import 'package:whatsapp/pages/auth/phoneNumber.dart';
 import 'package:whatsapp/pages/auth/startPage.dart';
 import 'package:whatsapp/pages/chat.dart';
 import 'package:whatsapp/pages/chatPage.dart';
@@ -38,7 +39,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CHat(),
+      home: PhoneNumber(),
       routes: {
         '/accounts': (context) => const account(),
         '/privacy': (context) => const Privacy(),
