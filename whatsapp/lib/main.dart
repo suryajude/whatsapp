@@ -2,12 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/constants.dart';
+import 'package:whatsapp/pages/auth/startPage.dart';
+import 'package:whatsapp/pages/chat.dart';
+import 'package:whatsapp/pages/chatPage.dart';
 import 'package:whatsapp/pages/home.dart';
 import 'package:whatsapp/pages/optioins/accounts.dart';
 import 'package:whatsapp/pages/optioins/help.dart';
 import 'package:whatsapp/pages/optioins/notifications.dart';
 import 'package:whatsapp/pages/optioins/privacy.dart';
-import 'package:whatsapp/pages/optioins/settings.dart';
+// import 'package:whatsapp/pages/optioins/settings.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: CHat(),
       routes: {
         '/accounts': (context) => const account(),
         '/privacy': (context) => const Privacy(),
