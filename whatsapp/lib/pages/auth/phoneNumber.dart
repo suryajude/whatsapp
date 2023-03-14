@@ -8,8 +8,20 @@ class PhoneNumber extends StatefulWidget {
 }
 
 class _PhoneNumberState extends State<PhoneNumber> {
+  // list for the drop down button
+  List<String> country = <String>[
+    "India",
+    "America",
+    "Australia",
+    "Israel",
+    "Switzedland"
+  ];
+  List<String> countryCode = <String>["+91", "+44", "+97", "41", "+56"];
+
   @override
   Widget build(BuildContext context) {
+    String firstValue = country.first;
+    String countryValue = countryCode.first;
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 10, 50, 83),
       body: Container(
@@ -35,11 +47,39 @@ class _PhoneNumberState extends State<PhoneNumber> {
               Padding(
                 padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
                 child: Container(
-                  height: 130.0,
+                  height: 170.0,
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.white, width: 4.0)),
                   child: ListView(
-                    children: [],
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: DropdownButton(
+                            value: firstValue,
+                            alignment: AlignmentDirectional.center,
+                            // hint: Text(
+                            //   "$",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            style: TextStyle(color: Colors.white),
+                            dropdownColor: Colors.black,
+                            items: country
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem(
+                                child: Text(value),
+                                value: value,
+                              );
+                            }).toList(),
+                            onChanged: (itemValue) {
+                              setState(() {
+                                firstValue = itemValue!;
+                              });
+                            }),
+                      ),
+                      Row(
+                        children: [],
+                      )
+                    ],
                   ),
                 ),
               )
